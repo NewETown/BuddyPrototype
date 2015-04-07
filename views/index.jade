@@ -1,0 +1,128 @@
+extends layout
+
+block content
+    .container-fluid
+      nav.paperize.navbar.navbar-default.purple(role='navigation', style='position: absolute;')
+        .container-fluid
+          .navbar-header
+            a.navbar-brand(href='#')
+              img(alt='Buddy Platform', src='/images/logo_dashboard.png')
+      |         
+      |         
+      .row.img-row(style='margin-top:260px;')
+        ul.list-inline.img-list.visible-lg
+          li.header-image.third.img-1
+          |                 
+          li.header-image.third.img-2
+          |                 
+          li.header-image.third.img-3
+        |             
+        ul.list-inline.img-list.visible-md.visible-sm
+          li.header-image.half.img-1
+          |                 
+          li.header-image.half.img-2
+        |             
+        ul.list-inline.img-list.visible-xs
+          li.header-image.full.img-1
+      // First thing we need is an awesome login card
+      .login-card.shadow-0
+        .container-fluid
+          .row.text-center.title
+            .col-md-12
+              h1.login-welcome Welcome to Buddy Platform!
+        |             
+        .row
+          .col-md-offset-1.col-md-10
+            form.paperize.login-form(role='form')
+              .paperize.form-group.ink-container
+                input#loginEmail.form-control.ink-light-gray(type='email', placeholder='Email Address')
+              |                         
+              .paperize.form-group.ink-container
+                input#loginPassword.form-control.ink-light-gray(type='password', placeholder='Password')
+              |                         
+              .paperize.form-group
+                .ink-container
+                  .checkbox
+                    label
+                      input(type='checkbox')
+                      |                                         
+                      span.check
+                      |                                         Remember Me
+                |                             
+                .ink-container.pin-right
+                  a.paperize.ink-purple(href='#') Forgot Password?
+              |                         
+              ul.paperize.list-inline.text-center
+                li
+                  button.paperize.ink-purple(href='#', id="register", type="button") Register
+                |                             
+                li
+                  button.paperize.ink-purple(href='#', id="login", type="button") Login
+      |         
+      |         
+      .row
+        .col-md-offset-2.col-md-8.divider
+          .row
+            .col-md-12
+              h2
+                | Welcome to Buddy.
+              p
+              | The Buddy Dashboard is your portal to using the BuddyAPI, an easy-to-use service that is accessible from any connected device. The BuddyAPI delivers device data to your business quickly and easily. No complicated agents, engineering dependencies, specialized hardware or firmware.
+      |         
+      |         
+      .row
+        .col-md-offset-2.col-md-8.divider
+          .row
+            .col-md-12
+              h2
+                | Why Buddy?
+              p
+              | Building your own data solution is an extremely complicated, expensive, and time-consuming process. At Buddy, we focus on empowering our clients to build the best connected devices on the market by removing the hassle of building and managing a full-service back-end.
+              |                         
+              h3.text-center.light A Case Study
+              |                         
+              p
+              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae ultrices augue, id elementum neque. Proin auctor condimentum mi, a tincidunt sapien interdum vel. Nam commodo venenatis ultrices. Sed laoreet arcu urna. Praesent commodo erat in metus maximus, nec condimentum dolor luctus. Sed dapibus est et nisl dapibus hendrerit. Morbi ornare magna vitae odio tristique placerat. Pellentesque sit amet convallis magna. Phasellus euismod nisl diam, eu pulvinar nunc luctus eget.
+              |                         
+              p
+              | Mauris tincidunt placerat efficitur. Vestibulum congue, erat id venenatis cursus, elit nulla eleifend sapien, a semper velit tortor vitae eros. Maecenas finibus eget erat a auctor. Aenean sit amet laoreet mauris. Praesent consectetur neque nec mollis sollicitudin. Donec mollis sem et lectus tincidunt vehicula. Vestibulum arcu nisl, volutpat sit amet interdum a, cursus sed eros. Donec quam ipsum, convallis id bibendum at, tristique non nibh. Nullam sed tortor et metus commodo ultrices. Ut tincidunt consectetur varius.
+              |                         
+              p
+              | Vestibulum ac molestie dolor, et blandit mauris. Suspendisse sed dolor non ex interdum vulputate. Pellentesque vel maximus ipsum. Vestibulum vel velit congue, rutrum ipsum ac, accumsan magna. Sed efficitur euismod placerat. Nam rutrum convallis pretium. Aliquam sagittis fringilla quam in interdum. Sed ex diam, auctor a mauris in, hendrerit ultricies velit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur pellentesque, nunc sed tristique pellentesque, nisi lectus tincidunt dui, gravida sodales eros sem a nibh. Aenean et lacus non magna scelerisque pulvinar nec nec erat. Proin consectetur ultrices finibus.
+      |         
+      |         
+      .row
+        .col-md-offset-2.col-md-8.divider
+          .row
+            .col-md-12
+              h2 Your First Steps.
+              |                         
+              p Getting started with Buddy is as easy as one, two, three.
+              |                         
+              h3.text-center.light One.
+              |                         
+              p
+                | Create an account using the &quot;GET STARTED&quot; button below or the &quot;REGISTER&quot; button at the top of the page.
+              |                         
+              h3.text-center.light Two.
+              |                         
+              p Review our quickstart guide for your platform.
+              |                         
+              h3.text-center.light Three.
+              |                         
+              p Build and run your app. Your data is instantly visible in your Buddy Dashboard.
+              |                         
+              h3.text-center.light Now what?
+              |                         
+              p
+              | The digitial world is your oyster. Your connected device or application is hooked-up to an extremely powerful back-end service that allows you to breeze through your development cycle. Send yourself telemetry, register users, make something awesome using any combination of our powerful APIs. After you publish your app or start selling your device, contact us for dashboards to hang in your office or use as presentation tools for your clients.
+ 
+      .row
+        .col-md-offset-2.col-md-8
+          .row
+            .col-md-12(style='padding-bottom: 30px;')
+              h3.text-center.light What are you waiting for?
+              |                         
+              .text-center.paperize.form-group
+                .ink-container.accent.shadow-0.raised-button
+                  a.paperize.ink-light-gray Get Started

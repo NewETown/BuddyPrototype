@@ -1,0 +1,140 @@
+extends layout
+
+block content
+
+    .container-fluid
+        nav.paperize.navbar.navbar-default.purple.app-nav.shadow-2(role='navigation', style='height: 80px;')
+            .container-fluid
+              .navbar-header
+                a.navbar-brand(href='#')
+                  img(alt='Buddy Platform', src='/images/logo_dashboard.png')
+
+        .apps.main-content.container-fluid
+            .row
+              .col-md-12.divider.body-container.delay-1
+                .row
+                  .col-md-12.text-center
+                    h2 The SUPERDEVICE                       
+                    ul.list-inline
+                      li
+                        .text-center.paperize.form-group
+                          .ink-container.accent.shadow-0.raised-button.active
+                            a#overview-btn.paperize.ink-light-gray.top-button Overview                  
+                      li
+                        .text-center.paperize.form-group
+                          .ink-container.accent.shadow-0.raised-button
+                            a#metrics-btn.paperize.ink-light-gray.top-button Custom Metrics
+                      li
+                        .text-center.paperize.form-group
+                          .ink-container.accent.shadow-0.raised-button
+                            a#admin-btn.paperize.ink-light-gray.top-button Admin
+                .row.app-row
+                  .col-md-12
+                    .graph.device-locations.shadow-0 [Dynamic Map]
+
+            #overview.active
+              .row
+                .col-md-12.divider.body-container.delay-2
+                  .row
+                    .col-md-12.text-center
+                      h2 Global Device Info
+                      p This is data available from every installation 
+                  .row
+                    .col-md-4
+                      .graph.active-devices.shadow-0(id='active-devices') Active Devices
+                    .col-md-4
+                      .graph.total-devices.shadow-0 Total Devices
+                    .col-md-4
+                      .graph.device-decay.shadow-0 Device Decay
+
+              .row
+                .col-md-12.divider.body-container.delay-3
+                  .row
+                    .col-md-12.text-center
+                      h2 General Metrics
+                      p This is data available when people match our [default metrics keywords] (needs a link)
+                  .row
+                    .col-md-4
+                      .graph.active-devices.shadow-0(id='device-installs') # Devices Installed This week
+                    .col-md-4
+                      .graph.total-devices.shadow-0 Average Installation Time
+                    .col-md-4
+                      .graph.firmware-breakdown.shadow-0 # Errors Per Day This Week
+
+            #custom-metrics
+              .row
+                .col-md-12.divider.body-container.delay-2(id='rule-container')
+                  .row.app-row
+                    .col-md-12
+                        .row
+                          .col-md-12.text-center
+                            h3 Visualize Your Data
+                        .row
+                          .col-md-12
+                            .graph.shadow-0
+                                .rules-box
+                                  .rule-row
+                                    .name.small-divider
+                                      h4 Name
+                                    .path.small-divider
+                                      h4 Telemetry Path
+                                    .date-range.small-divider
+                                      h4 Date Range
+                                    .data-type.small-divider
+                                      h4 Data Type
+                                  .rule-row
+                                    .name Count Device Names
+                                    .path device.name
+                                    .date-range Current Week
+                                    .data-type String
+                                  .rule-row
+                                    .name Errors By Type
+                                    .path error.err1.type
+                                    .date-range Past 24 hours
+                                    .data-type String
+                                  .rule-row
+                                    .name Total Devices Shut Down
+                                    .path device.shut_down
+                                    .date-range Current Month
+                                    .data-type int                 
+                                .add-rule
+                                  form.paperize.rule-form(role='form', id='rule-creation')
+                                    .paperize.form-group.ink-container
+                                      input.form-control.ink-light-gray(type='text', placeholder='Rule name', id='name')
+                                    .paperize.form-group.ink-container
+                                      input.form-control.ink-light-gray(type='text', placeholder='Telemetry data path', id='path')
+                                    .paperize.form-group.ink-container
+                                      select.rule-selector(id='date')
+                                        option(selected='selected') Select Timeframe
+                                        option Current
+                                        option Past 24 Hours
+                                        option Past Week
+                                        option Past Month
+                                        option Current Day
+                                        option Current Week
+                                        option Current Month
+                                    .paperize.form-group.ink-container
+                                      select.rule-selector(id='type')
+                                        option(selected='selected') Select Data Type
+                                        option Total
+                                        option Average
+                                        option Tally
+                                    ul.paperize.list-inline.text-center
+                                      li
+                                        a.paperize.ink-purple(id='add_rule', style='cursor: pointer;') Add Rule
+
+              .row
+                .col-md-12.divider.body-container.delay-3(id='charts-container')
+                  .row
+                    .col-md-12.text-center
+                      h2 User-Built Metrics
+                      p This is data comes from the rules the user creates above.
+                  .row.current-row
+                    .col-md-4
+                      .graph.active-devices.shadow-0 Count Device Names
+                    .col-md-4
+                      .graph.total-devices.shadow-0 Errors By Type
+                    .col-md-4
+                      .graph.firmware-breakdown.shadow-0 Total Devices Shut Down
+    
+    script(src='/javascripts/overview.js')
