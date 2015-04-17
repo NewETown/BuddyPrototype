@@ -3,7 +3,7 @@ extends layout
 block content
 
     .container-fluid
-        nav.paperize.navbar.navbar-default.purple.app-nav.shadow-2(role='navigation', style='height: 80px;')
+        nav.paperize.navbar.navbar-default.purple.app-nav.overview-nav.shadow-2(role='navigation')
             .container-fluid
               .navbar-header
                 a.navbar-brand(href='#')
@@ -83,20 +83,20 @@ block content
                                     .data-type.small-divider
                                       h4 Data Type
                                   .rule-row
-                                    .name Count Device Names
+                                    .name Count Current Devices
                                     .path device.name
                                     .date-range Current Week
-                                    .data-type String
+                                    .data-type Total
                                   .rule-row
                                     .name Errors By Type
                                     .path error.err1.type
                                     .date-range Past 24 hours
-                                    .data-type String
+                                    .data-type Total
                                   .rule-row
                                     .name Total Devices Shut Down
                                     .path device.shut_down
                                     .date-range Current Month
-                                    .data-type int                 
+                                    .data-type Total                 
                                 .add-rule
                                   form.paperize.rule-form(role='form', id='rule-creation')
                                     .paperize.form-group.ink-container
@@ -118,7 +118,7 @@ block content
                                         option(selected='selected') Select Data Type
                                         option Total
                                         option Average
-                                        option Tally
+                                        option Percentage
                                     ul.paperize.list-inline.text-center
                                       li
                                         a.paperize.ink-purple(id='add_rule', style='cursor: pointer;') Add Rule

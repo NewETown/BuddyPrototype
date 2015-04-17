@@ -29,6 +29,12 @@ $(function() {
             method: 'POST',
             data: data
         }).success(function(msg) {
+            if(!sessionStorage.getItem('ProtoBuddy')) {
+                sessionStorage.SessionName = 'ProtoBuddy';
+            }
+            
+            sessionStorage.setItem('ProtoBuddy', msg.userId);
+            
             window.location = msg.redirect;
         }).fail(function(msg) {
             console.log('Fail');
@@ -88,6 +94,9 @@ $(function() {
     if (window.location.pathname === '/overview') {
         renderGoogleCharts();
     }
+    
+    // Backbone stuff
+    var customMetricsView = new CustomMetricsView();
 });
 
 function ApplyTransitions() {

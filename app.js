@@ -9,7 +9,9 @@ var _ = require('underscore');
 var nconf = require('nconf');
 var buddy = require('buddy-sdk');
 
-var routes = require('./routes/index');
+var index = require('./routes/index');
+var telemetry = require('./routes/telemetry');
+var overview = require('./routes/overview');
 
 var app = express();
 
@@ -23,7 +25,20 @@ nconf.file({ file: __dirname + '/config.json' });
 //	nconf.file({ file: __dirname + '/production.config.json' });
 //}
 
-buddy.init(nconf.get('buddyapp:id'), nconf.get('buddyapp:key'));
+//var model = null;
+//var match = /\((.*?);/.exec(navigator.userAgent);
+//
+//if(match) {
+//    model = match[1];
+//}
+//
+//var options = {
+//    platform: "Prototype",
+//    model: model,
+////    unique_id: req.body.unique_id
+//};
+
+Buddy = buddy.init(nconf.get('buddyapp:id'), nconf.get('buddyapp:key'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,7 +52,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'bower_components')));
 
-app.use('/', routes);
+app.use('/', index);
+app.use('/overview', overview);
+app.use('/telemetry', telemetry);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

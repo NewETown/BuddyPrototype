@@ -1064,3 +1064,7 @@ footer.paperize p {
     left: 2.5%;
     text-align: center;
 }
+
+nav.paperize.overview-nav {
+    height: 80px;
+}
